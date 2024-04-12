@@ -1,3 +1,5 @@
-async function init() {}
+async function init() {
+    
+}
 
 init().catch((error: any) => {})
