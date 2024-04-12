@@ -10,9 +10,9 @@
     "lib": ["ES2021"],
     "outDir": "./build",
     "paths": {
-      "@prisma": ["src/prisma/index"],
-      "@config": ["src/config/index"],
-      "@logger": ["src/logger/index"]
+      "@services": ["src/services/index"],
+      "@interfaces": ["src/interfaces/index"],
+      "@utils": ["src/utils/index"]
     }
   },
   "include": ["src/**/*.ts"]
