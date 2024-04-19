@@ -13,25 +13,31 @@ enum UserType {
 }
 
 model User {
-  id         Int       @id @default(autoincrement())
-  email      String    @unique
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
   password   String
   type       UserType
   firstname  String
   lastname   String
-  created_at DateTime  @default(now())
-  deleted_at DateTime?
+  created_at DateTime @default(now())
 
-  avatar_id Int?
-  avatar    File?  @relation(fields: [avatar_id], references: [id])
-  group_id  Int?
-  group     Group? @relation(fields: [group_id], references: [id])
+  group_id Int?
+  group    Group? @relation(fields: [group_id], references: [id])
 
+  avatar         UserAvatar?
   tokens         Token[]
-  favourites     Favourite[]
   posts          Post[]
-  participations EventParticipation[]
+  likes          Like[]
+  favourites     Favourite[]     @relation(name: "favourite_user_source")
+  voters         Favourite[]     @relation(name: "favourite_user_target")
   university     University?
+  participations Participation[]
+}
+
+model UserAvatar {
+  user_id Int    @unique
+  user    User   @relation(fields: [user_id], references: [id])
+  path    String
 }
 
 model Token {
@@ -46,22 +52,40 @@ model Token {
 }
 
 model City {
-  id           Int          @id @default(autoincrement())
-  name         String 
+  id   Int    @id @default(autoincrement())
+  name String
 
   universities University[]
 }
 
 model University {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+  id      Int    @id @default(autoincrement())
+  name    String @unique
+  content String
 
-  delegate_id Int       @unique
-  delegate    User      @relation(fields: [delegate_id], references: [id])
+  delegate_id Int  @unique
+  delegate    User @relation(fields: [delegate_id], references: [id])
   city_id     Int
-  city        City      @relation(fields: [city_id], references: [id])
-  
-  faculty     Faculty[]
+  city        City @relation(fields: [city_id], references: [id])
+
+  avatar    UniversityAvatar?
+  faculties Faculty[]
+  events    Event[]
+  images    UniversityImage[]
+}
+
+model UniversityAvatar {
+  university_id Int        @unique
+  university    University @relation(fields: [university_id], references: [id])
+  path          String
+}
+
+model UniversityImage {
+  id   Int    @id @default(autoincrement())
+  path String
+
+  university_id Int
+  university    University @relation(fields: [university_id], references: [id])
 }
 
 model Faculty {
@@ -108,10 +132,12 @@ model Event {
   started_at  DateTime @default(now())
   finished_at DateTime @default(now())
 
-  type_id Int
-  type    EventType @relation(fields: [type_id], references: [id])
+  type_id       Int
+  type          EventType  @relation(fields: [type_id], references: [id])
+  university_id Int
+  university    University @relation(fields: [university_id], references: [id])
 
-  participations EventParticipation[]
+  participations Participation[]
 }
 
 model EventType {
@@ -122,7 +148,7 @@ model EventType {
   events Event[]
 }
 
-model EventParticipation {
+model Participation {
   id       Int     @id @default(autoincrement())
   approved Boolean @default(false)
   reward   Int
@@ -144,18 +170,16 @@ model Post {
   post_category_id Int
   post_category    PostCategory @relation(fields: [post_category_id], references: [id])
 
-  files      File[]
-  favourites Favourite[]
+  likes  Like[]
+  images PostImage[]
 }
 
-model Favourite {
-  user_id Int
-  user    User @relation(fields: [user_id], references: [id])
+model PostImage {
+  id   Int    @id @default(autoincrement())
+  path String
 
   post_id Int
   post    Post @relation(fields: [post_id], references: [id])
-
-  @@unique([user_id, post_id])
 }
 
 model PostCategory {
@@ -165,10 +189,22 @@ model PostCategory {
   posts Post[]
 }
 
-model File {
-  id   Int    @id @default(autoincrement())
-  path String
+model Like {
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id])
 
-  posts Post[]
-  user  User[]
+  post_id Int
+  post    Post @relation(fields: [post_id], references: [id])
+
+  @@unique([user_id, post_id])
+}
+
+model Favourite {
+  source_id Int
+  source    User @relation(fields: [source_id], references: [id], name: "favourite_user_source")
+
+  target_id Int
+  target    User @relation(fields: [target_id], references: [id], name: "favourite_user_target")
+
+  @@unique([source_id, target_id])
 }

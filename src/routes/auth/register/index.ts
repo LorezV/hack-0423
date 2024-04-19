@@ -1,7 +1,9 @@
 import { FastifyInstance } from 'fastify';
 
-import post from './post';
+import delegate from './delegate';
+import student from './student';
 
 export default async (instance: FastifyInstance) => {
-  await instance.register(post);
+  await instance.register(delegate, { prefix: '/delegate' });
+  await instance.register(student, { prefix: '/student' });
 };

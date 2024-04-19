@@ -1,10 +1,11 @@
-import { IConfig, ITokenService, IUserService } from '@interfaces';
+import { IConfig } from '@interfaces';
 import { PrismaClient } from '@prisma/client';
+import { TokenService, UserService } from '@services';
 import { Logger } from 'pino';
 
 export interface IServices {
-  userService: IUserService;
-  tokenService: ITokenService;
+  userService: UserService;
+  tokenService: TokenService;
 }
 
 export interface IDependencies {

@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
-import { IConfig, IGenerateTokensData, IToken, ITokenService, Nullable } from '@interfaces';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Token } from '@prisma/client';
+import { IConfig } from '@interfaces';
 
-export class TokenService implements ITokenService {
+export class TokenService {
   constructor(private readonly config: IConfig, private readonly prisma: PrismaClient) {}
 
-  async upsertToken(data: IGenerateTokensData, tokenId: Nullable<number>): Promise<IToken> {
+  async upsertToken(data: IGenerateTokensData, tokenId: Nullable<number>): Promise<Token> {
     const { accessToken, refreshToken } = this.generateTokens(data);
 
     return await this.prisma.token.upsert({
