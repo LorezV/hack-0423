@@ -1,12 +1,13 @@
 export interface IConfig {
+  project: string;
   server: {
     host: string;
     port: number;
   };
   jwt: {
     accessSecret: string;
-    accessExpiresIn: number;
+    accessExpires: number;
     refreshSecret: string;
-    refreshExpiresIn: number;
+    refreshExpires: number;
   };
 }

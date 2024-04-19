@@ -4,26 +4,28 @@ import { object, string, number } from 'yup';
 
 export function initConfig(): IConfig {
   return object({
+    project: string().required(),
     server: object({
       host: string().required(),
       port: number().required(),
     }),
     jwt: object({
       accessSecret: string().required(),
-      accessExpiresIn: number().required(),
+      accessExpires: number().required(),
       refreshSecret: string().required(),
-      refreshExpiresIn: number().required(),
+      refreshExpires: number().required(),
     }),
   }).validateSync({
+    project: process.env.npm_package_name || 'hack-0423',
     server: {
       host: process.env.SERVER_HOST,
       port: process.env.SERVER_PORT,
     },
     jwt: {
-      accessSecret: process.env.ACCESS_SECRET,
-      accessExpiresIn: process.env.ACCESS_EXPIRES_IN,
-      refreshSecret: process.env.REFRESH_SECRET,
-      refreshExpiresIn: process.env.REFRESH_EXPIRES_IN,
+      accessSecret: process.env.JWT_ACCESS_SECRET,
+      accessExpires: process.env.JWT_ACCESS_EXPIRES,
+      refreshSecret: process.env.JWT_REFRESH_SECRET,
+      refreshExpires: process.env.JWT_ACCESS_EXPIRES,
     },
   });
 }

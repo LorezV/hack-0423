@@ -1,8 +1,9 @@
+import { IConfig } from '@interfaces';
 import pino from 'pino';
 
-export function initLogger(): pino.Logger {
+export function initLogger(config: IConfig): pino.Logger {
   return pino({
-    name: 'hack-0424',
+    name: config.project,
     level: 'debug',
     transport: {
       target: 'pino-pretty',

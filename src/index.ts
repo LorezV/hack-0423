@@ -2,8 +2,7 @@ import fastify, { FastifyInstance } from 'fastify';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 import fastifyCors from '@fastify/cors';
-import { initDependencies } from './utils';
-import { swaggerOptions, swaggerUiOptions } from './swagger-options';
+import { getSwaggerOptions, initDependencies, swaggerUiOptions } from './utils';
 import initRoutes from './routes';
 
 async function init() {
@@ -18,10 +17,11 @@ async function init() {
     disableRequestLogging: true,
   });
   app.decorate('dependencies', dependencies);
-  await app.register(fastifySwagger, swaggerOptions);
+  await app.register(fastifySwagger, getSwaggerOptions(config));
   await app.register(fastifySwaggerUi, swaggerUiOptions);
   await app.register(fastifyCors, { origin: false });
   await app.register(initRoutes, { prefix: '/api' });
+
   app.ready(() => {
     console.log(app.printRoutes());
   });

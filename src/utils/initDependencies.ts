@@ -3,8 +3,8 @@ import { TokenService, UserService } from '@services';
 import { initConfig, initLogger, initPrisma } from '@utils';
 
 export async function initDependencies(): Promise<IDependencies> {
-  const logger = initLogger();
   const config = initConfig();
+  const logger = initLogger(config);
   const prisma = initPrisma();
 
   const userService = new UserService(prisma);
