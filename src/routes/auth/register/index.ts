@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify';
 
-import auth from './auth';
+import post from './post';
 
 export default async (instance: FastifyInstance) => {
-  await instance.register(auth, { prefix: '/auth' });
+  await instance.register(post);
 };
