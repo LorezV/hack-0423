@@ -7,52 +7,168 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserType {
+  STUDENT
+  DELEGATE
+}
+
 model User {
   id         Int       @id @default(autoincrement())
   email      String    @unique
   password   String
+  type       UserType
+  firstname  String
+  lastname   String
   created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
   deleted_at DateTime?
 
-  group_id Int?
-  group    Group?  @relation(fields: [group_id], references: [id])
-  tokens   Token[]
+  avatar_id Int?
+  avatar    File?  @relation(fields: [avatar_id], references: [id])
+  group_id  Int?
+  group     Group? @relation(fields: [group_id], references: [id])
 
-  @@map("user")
+  tokens         Token[]
+  favourites     Favourite[]
+  posts          Post[]
+  participations EventParticipation[]
+  university     University?
 }
 
 model Token {
-  id            Int       @id @default(autoincrement())
-  access_token  String
-  refresh_token String
-  created_at    DateTime  @default(now())
-  updated_at    DateTime  @updatedAt
-  deleted_at    DateTime?
+  id                       Int      @id @default(autoincrement())
+  access_token             String
+  access_token_expired_at  DateTime
+  refresh_token            String
+  refresh_token_expired_at DateTime
 
   user_id Int
   user    User @relation(fields: [user_id], references: [id])
+}
 
-  @@map("user_token")
+model City {
+  id           Int          @id @default(autoincrement())
+  name         String 
+
+  universities University[]
+}
+
+model University {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  delegate_id Int       @unique
+  delegate    User      @relation(fields: [delegate_id], references: [id])
+  city_id     Int
+  city        City      @relation(fields: [city_id], references: [id])
+  
+  faculty     Faculty[]
+}
+
+model Faculty {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  university_id Int
+  university    University   @relation(fields: [university_id], references: [id])
+  departments   Department[]
+}
+
+model Department {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  faculty_id Int
+  faculty    Faculty @relation(fields: [faculty_id], references: [id])
+  flows      Flow[]
+}
+
+model Flow {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  department_id Int
+  department    Department @relation(fields: [department_id], references: [id])
+
+  groups Group[]
 }
 
 model Group {
-  id         Int       @id @default(autoincrement())
-  name       String    @unique
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  deleted_at DateTime?
+  id   Int    @id @default(autoincrement())
+  name String @unique
 
-  permissions Permission[]
-  users       User[]
+  flow_id Int
+  flow    Flow   @relation(fields: [flow_id], references: [id])
+  users   User[]
 }
 
-model Permission {
-  id         Int       @id @default(autoincrement())
-  name       String    @unique
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  deleted_at DateTime?
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  started_at  DateTime @default(now())
+  finished_at DateTime @default(now())
 
-  groups Group[]
+  type_id Int
+  type    EventType @relation(fields: [type_id], references: [id])
+
+  participations EventParticipation[]
+}
+
+model EventType {
+  id     Int    @id @default(autoincrement())
+  name   String
+  reward Int
+
+  events Event[]
+}
+
+model EventParticipation {
+  id       Int     @id @default(autoincrement())
+  approved Boolean @default(false)
+  reward   Int
+
+  user_id  Int
+  user     User  @relation(fields: [user_id], references: [id])
+  event_id Int
+  event    Event @relation(fields: [event_id], references: [id])
+}
+
+model Post {
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String
+  created_at DateTime @default(now())
+
+  author_id        Int
+  author           User         @relation(fields: [author_id], references: [id])
+  post_category_id Int
+  post_category    PostCategory @relation(fields: [post_category_id], references: [id])
+
+  files      File[]
+  favourites Favourite[]
+}
+
+model Favourite {
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id])
+
+  post_id Int
+  post    Post @relation(fields: [post_id], references: [id])
+
+  @@unique([user_id, post_id])
+}
+
+model PostCategory {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  posts Post[]
+}
+
+model File {
+  id   Int    @id @default(autoincrement())
+  path String
+
+  posts Post[]
+  user  User[]
 }
