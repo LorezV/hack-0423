@@ -1,8 +1,8 @@
-export const facultySchema = {
+export const departmentSchema = {
   type: 'object',
   properties: {
     id: { type: 'number' },
     name: { type: 'string' },
-    university_id: { type: 'number' },
+    faculty_id: { type: 'number' },
   },
 };

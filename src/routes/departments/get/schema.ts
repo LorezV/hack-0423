@@ -1,14 +1,15 @@
 import { FastifySchema } from 'fastify';
-import { universitySchema } from '@schemas';
+import { departmentSchema } from '@schemas';
 
 const schema: FastifySchema = {
-  tags: ['Университеты'],
+  tags: ['Кафедры'],
   querystring: {
     type: 'object',
     properties: {
       page: { type: 'number' },
       limit: { type: 'number' },
       search: { type: 'string' },
+      faculty_id: { type: 'number' },
     },
   },
   response: {
@@ -18,9 +19,9 @@ const schema: FastifySchema = {
         data: {
           type: 'object',
           properties: {
-            universities: {
+            departments: {
               type: 'array',
-              items: universitySchema,
+              items: departmentSchema,
             },
             total_records: {
               type: 'number',

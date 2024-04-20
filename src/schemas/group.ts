@@ -1,8 +1,8 @@
-export const facultySchema = {
+export const groupSchema = {
   type: 'object',
   properties: {
     id: { type: 'number' },
     name: { type: 'string' },
-    university_id: { type: 'number' },
+    flow_id: { type: 'number' },
   },
 };

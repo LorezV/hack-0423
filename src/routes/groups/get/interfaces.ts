@@ -1,15 +1,15 @@
-import { IFaculty } from '@interfaces';
+import { IGroup } from '@interfaces';
 
 export interface IQuerystring {
   page?: number;
   limit?: number;
   search?: string;
-  university_id?: number;
+  flow_id?: number;
 }
 
 export interface IResponse {
   data: {
-    faculties: IFaculty[];
+    groups: IGroup[];
     total_records: number;
     total_pages: number;
   };

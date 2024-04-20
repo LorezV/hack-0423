@@ -14,20 +14,20 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
       name: {
         contains: request.query.search,
       },
-      university_id: request.query.university_id,
+      faculty_id: request.query.faculty_id,
     };
 
-    const faculties = await prisma.faculty.findMany({
+    const departments = await prisma.department.findMany({
       where,
       skip: offset,
       take: limit,
     });
 
-    const totalRecords = await prisma.faculty.count({ where });
+    const totalRecords = await prisma.department.count({ where });
 
     return {
       data: {
-        faculties,
+        departments,
         total_records: totalRecords,
         total_pages: Math.floor(totalRecords / limit) + 1,
       },

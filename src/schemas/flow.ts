@@ -1,8 +1,8 @@
-export const facultySchema = {
+export const flowSchema = {
   type: 'object',
   properties: {
     id: { type: 'number' },
     name: { type: 'string' },
-    university_id: { type: 'number' },
+    department_id: { type: 'number' },
   },
 };
