@@ -10,6 +10,11 @@ export interface IEvent {
   university_id: number;
 }
 
+export interface IUpdateEvent {
+  title: string;
+  content: string;
+}
+
 export type TEventWithType = IEvent & { type: IEventType };
 
 export type TEventWithUniversity = IEvent & { university: IUniversity };
