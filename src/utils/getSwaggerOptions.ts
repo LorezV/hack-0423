@@ -15,6 +15,10 @@ export function getSwaggerOptions(config: IConfig): FastifyDynamicSwaggerOptions
           url: 'http://localhost:3000',
           description: 'Localhost server',
         },
+        {
+          url: 'https://closing-elk-willingly.ngrok-free.app/',
+          description: 'Dev server',
+        },
       ],
       tags: [{ name: 'Auth' }],
       components: {
