@@ -1,6 +1,5 @@
-import { convertSchema } from '@sodaru/yup-to-json-schema';
+import { tokenSchema } from '@schemas';
 import { FastifySchema } from 'fastify';
-import { object, string } from 'yup';
 
 const schema: FastifySchema = {
   tags: ['Auth'],
@@ -10,6 +9,14 @@ const schema: FastifySchema = {
     properties: {
       email: { type: 'string' },
       password: { type: 'string' },
+    },
+  },
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        data: tokenSchema,
+      },
     },
   },
 };

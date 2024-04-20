@@ -10,8 +10,10 @@
     "lib": ["ES2021"],
     "outDir": "./build",
     "paths": {
+      "@hooks": ["src/hooks/index"],
       "@services": ["src/services/index"],
       "@interfaces": ["src/interfaces/index"],
+      "@schemas": ["src/schemas/index"],
       "@utils": ["src/utils/index"]
     }
   },

@@ -1,10 +1,10 @@
 import { IDependencies } from '@interfaces';
-import { TokenService, UserService } from '@services';
+import { TokenService, UserService, EventService, UniversityService } from '@services';
 import { initConfig, initLogger, initPrisma } from '@utils';
-import { EventService } from 'src/services/event.service';
 import { ParticipitionService } from 'src/services/participitionService';
 
-export async function initDependencies(): Promise<IDependencies> {
+
+export function initDependencies(): IDependencies {
   const config = initConfig();
   const logger = initLogger(config);
   const prisma = initPrisma();
@@ -13,6 +13,7 @@ export async function initDependencies(): Promise<IDependencies> {
   const tokenService = new TokenService(config, prisma);
   const eventService = new EventService(prisma);
   const participationService = new ParticipitionService(prisma, eventService);
+  const universityService = new UniversityService(prisma);
 
   return {
     logger,
@@ -23,6 +24,7 @@ export async function initDependencies(): Promise<IDependencies> {
       tokenService,
       eventService,
       participationService,
+      universityService,
     },
   };
 }

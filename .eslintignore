@@ -1,0 +1,13 @@
+build/
+node_modules/
+test/
+
+# eslint configurations
+.eslintrc.js
+.eslintskipwork.js
+
+# jest configurations
+jest.config.js
+
+# pm2 config
+ecosystem.config.js
