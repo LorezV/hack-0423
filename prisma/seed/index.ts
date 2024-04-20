@@ -2,12 +2,14 @@ import { PrismaClient } from '@prisma/client';
 import { CitySeed } from './citySeed';
 import { UniversitySeed } from './universitySeed';
 import { UserSeed } from './userSeed';
+import { EventTypeSeed } from './eventTypeSeed';
 
 const prisma = new PrismaClient();
 async function main() {
   UserSeed();
   CitySeed();
   UniversitySeed();
+  EventTypeSeed();
 }
 
 main()
