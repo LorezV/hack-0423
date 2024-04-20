@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import schema from './schema';
 
-export default (instance: FastifyInstance) => {
+export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function get(request: FastifyRequest<{ Params: { id: number } }>) {
     const { eventService } = instance.dependencies.services;
     const id = request.params.id;
@@ -10,4 +10,5 @@ export default (instance: FastifyInstance) => {
   }
 
   instance.get('/', { schema }, get);
+  done();
 };
