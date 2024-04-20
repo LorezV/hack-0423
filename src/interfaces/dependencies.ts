@@ -1,6 +1,6 @@
 import { IConfig } from '@interfaces';
 import { PrismaClient } from '@prisma/client';
-import { EventService, TokenService, UniversityService, UserService } from '@services';
+import { EventService, TokenService, UserService } from '@services';
 import { Logger } from 'pino';
 import { ParticipitionService } from 'src/services/participitionService';
 
@@ -9,7 +9,6 @@ export interface IServices {
   tokenService: TokenService;
   eventService: EventService;
   participationService: ParticipitionService;
-  universityService: UniversityService;
 }
 
 export interface IDependencies {

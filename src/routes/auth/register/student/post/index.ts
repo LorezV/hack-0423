@@ -9,7 +9,8 @@ import { UserType } from '@prisma/client';
 export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function post(request: FastifyRequest<{ Body: IBody }>): Promise<TResponse> {
     const data = request.body;
-    const { userService, tokenService, universityService } = instance.dependencies.services;
+    const { prisma } = instance.dependencies;
+    const { userService, tokenService } = instance.dependencies.services;
 
     try {
       string().email().required().validateSync(data.email);
@@ -26,7 +27,11 @@ export default (instance: FastifyInstance, options: unknown, done: () => void) =
       throw getError(409, 'USER_EXISTS');
     }
 
-    const group = await universityService.findGroupById(data.group_id);
+    const group = await prisma.group.findUnique({
+      where: {
+        id: data.group_id,
+      },
+    });
     if (!group) {
       throw getError(404, 'GROUP_NOT_FOUND');
     }

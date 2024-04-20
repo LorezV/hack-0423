@@ -6,7 +6,6 @@ export interface IUniversity {
   content: string;
   delegate_id: number;
   city_id: number;
-  avatar_id: Nullable<number>;
 }
 
 export type IUniversityWithDelegate = IUniversity & { delegate: IUser };
