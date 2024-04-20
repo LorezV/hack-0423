@@ -20,7 +20,6 @@ export function getSwaggerOptions(config: IConfig): FastifyDynamicSwaggerOptions
           description: 'Dev server',
         },
       ],
-      tags: [{ name: 'Auth' }],
       components: {
         securitySchemes: {
           auth: {

@@ -19,7 +19,7 @@ const schema: FastifySchema = {
         data: {
           type: 'object',
           properties: {
-            universities: {
+            faculties: {
               type: 'array',
               items: facultySchema,
             },

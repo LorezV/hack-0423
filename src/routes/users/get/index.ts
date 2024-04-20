@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
-import schema from './schema';
 import { IQuerystring, IResponse } from './interfaces';
+import schema from './schema';
 
 export default function (instance: FastifyInstance, options: unknown, done: () => void) {
   async function get(request: FastifyRequest<{ Querystring: IQuerystring }>): Promise<IResponse> {
@@ -10,21 +10,32 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
     const page = request.query.page || 0;
     const offset = page * limit;
 
-    const where = {
-      name: request.query.search,
-    };
+    const where: {
+      OR?: {
+        firstname?: { contains: string };
+        lastname?: { contains: string };
+      }[];
+    } = {};
 
-    const universities = await prisma.university.findMany({
+    if (request.query.search) {
+      where.OR = [];
+      request.query.search.split(' ').forEach((word) => {
+        where.OR?.push({ firstname: { contains: word } });
+        where.OR?.push({ lastname: { contains: word } });
+      });
+    }
+
+    const users = await prisma.user.findMany({
       where,
       skip: offset,
       take: limit,
     });
 
-    const totalRecords = await prisma.university.count({ where });
+    const totalRecords = await prisma.user.count({ where });
 
     return {
       data: {
-        universities: universities,
+        users,
         total_records: totalRecords,
         total_pages: Math.floor(totalRecords / limit) + 1,
       },

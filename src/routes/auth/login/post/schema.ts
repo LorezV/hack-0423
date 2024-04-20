@@ -2,7 +2,7 @@ import { tokenSchema } from '@schemas';
 import { FastifySchema } from 'fastify';
 
 const schema: FastifySchema = {
-  tags: ['Auth'],
+  tags: ['Авторизация'],
   body: {
     type: 'object',
     required: ['email', 'password'],
