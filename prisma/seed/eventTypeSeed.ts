@@ -28,9 +28,9 @@ export async function EventTypeSeed() {
       }),
     );
 
-    console.log('University seed completed successfully');
+    console.log('EventType seed completed successfully');
   } catch (error) {
-    console.error('University seed failed:', error);
+    console.error('EventType seed failed:', error);
   } finally {
     await prisma.$disconnect();
   }

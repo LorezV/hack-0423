@@ -21,6 +21,7 @@ export async function UniversitySeed() {
             create: {
               ...data,
               city_id: optionalCity.id,
+              delegate_id: data.delegate_id,
             },
             update: {
               ...data,

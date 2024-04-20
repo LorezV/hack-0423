@@ -30,13 +30,13 @@ const delegates = [
   },
 ];
 
-export async function UserSeed() {
+export async function DelegateSeed() {
   try {
     await Promise.all(
       delegates.map(async (delegate) => {
         const { id, ...data } = delegate;
 
-        prisma.user.upsert({
+        await prisma.user.upsert({
           where: { id },
           create: {
             id,
@@ -49,9 +49,9 @@ export async function UserSeed() {
         });
       }),
     );
-    console.log('User seed completed successfully');
+    console.log('Delegate seed completed successfully');
   } catch (error) {
-    console.error('User seed failed:', error);
+    console.error('Delegate seed failed:', error);
   } finally {
     await prisma.$disconnect();
   }

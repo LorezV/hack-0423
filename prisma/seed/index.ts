@@ -1,15 +1,25 @@
 import { PrismaClient } from '@prisma/client';
-import { CitySeed } from './citySeed';
-import { UniversitySeed } from './universitySeed';
-import { UserSeed } from './userSeed';
+import { CitySeed } from './CitySeed';
+import { DelegateSeed } from './delegateSeed';
+import { DepartmentSeed } from './departmentSeed';
 import { EventTypeSeed } from './eventTypeSeed';
+import { FacultySeed } from './facultySeed';
+import { FlowSeed } from './flowSeed';
+import { GroupSeed } from './groupSeed';
+import { StudentSeed } from './studentSeed';
+import { UniversitySeed } from './universitySeed';
 
 const prisma = new PrismaClient();
 async function main() {
-  UserSeed();
   CitySeed();
+  DelegateSeed();
   UniversitySeed();
+  FacultySeed();
+  DepartmentSeed();
+  FlowSeed();
+  GroupSeed();
   EventTypeSeed();
+  StudentSeed();
 }
 
 main()
