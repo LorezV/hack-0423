@@ -9,6 +9,9 @@
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register --ignore-watch node_modules --transpile-only src",
     "lint": "prettier --check --write . && eslint . --ext .ts --fix"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed/index.ts"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
