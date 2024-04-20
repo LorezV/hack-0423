@@ -53,7 +53,7 @@ model Token {
 
 model City {
   id   Int    @id @default(autoincrement())
-  name String
+  name String @unique
 
   universities University[]
 }
