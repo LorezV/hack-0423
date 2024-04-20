@@ -43,9 +43,9 @@ model UserAvatar {
 
 model Token {
   id                       Int      @id @default(autoincrement())
-  access_token             String   @unique
+  access_token             String
   access_token_expired_at  DateTime
-  refresh_token            String   @unique
+  refresh_token            String
   refresh_token_expired_at DateTime
 
   user_id Int
@@ -91,44 +91,52 @@ model UniversityImage {
 
 model Faculty {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   university_id Int
   university    University   @relation(fields: [university_id], references: [id])
   departments   Department[]
+
+  @@unique([university_id, name])
 }
 
 model Department {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   faculty_id Int
   faculty    Faculty @relation(fields: [faculty_id], references: [id])
   flows      Flow[]
+
+  @@unique([faculty_id, name])
 }
 
 model Flow {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   department_id Int
   department    Department @relation(fields: [department_id], references: [id])
 
   groups Group[]
+
+  @@unique([department_id, name])
 }
 
 model Group {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   flow_id Int
   flow    Flow   @relation(fields: [flow_id], references: [id])
   users   User[]
+
+  @@unique([flow_id, name])
 }
 
 model Event {
   id          Int      @id @default(autoincrement())
-  title       String
+  name        String
   content     String
   started_at  DateTime @default(now())
   finished_at DateTime @default(now())
@@ -139,6 +147,8 @@ model Event {
   university    University @relation(fields: [university_id], references: [id])
 
   participations Participation[]
+
+  @@unique([name, university_id])
 }
 
 model EventType {
@@ -150,7 +160,6 @@ model EventType {
 }
 
 model Participation {
-  id       Int     @id @default(autoincrement())
   approved Boolean @default(false)
   reward   Int
 
@@ -158,6 +167,8 @@ model Participation {
   user     User  @relation(fields: [user_id], references: [id])
   event_id Int
   event    Event @relation(fields: [event_id], references: [id])
+
+  @@unique([user_id, event_id])
 }
 
 model Post {

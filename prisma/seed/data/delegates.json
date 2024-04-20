@@ -1,0 +1,38 @@
+[
+  {
+    "firstname": "Первый",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-1@domain.com"
+  },
+  {
+    "firstname": "Второй",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-2@domain.com"
+  },
+  {
+    "firstname": "Третий",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-3@domain.com"
+  },
+  {
+    "firstname": "Четвёртый",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-4@domain.com"
+  },
+  {
+    "firstname": "Пятый",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-5@domain.com"
+  },
+  {
+    "firstname": "Без вуза",
+    "lastname": "Администратор",
+    "password": "1111",
+    "email": "delegate-6@domain.com"
+  }
+]

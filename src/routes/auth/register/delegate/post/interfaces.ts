@@ -8,4 +8,6 @@ export interface IBody {
   lastname: string;
 }
 
-export type TResponse = IToken;
+export type TResponse = {
+  data: IToken;
+};

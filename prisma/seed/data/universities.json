@@ -1,0 +1,296 @@
+[
+  {
+    "name": "ОГУ",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac cursus nulla, vitae rutrum nisl. Etiam ipsum ligula, convallis eu vulputate ac, porta sed neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Aenean dignissim eros in augue faucibus mattis. Morbi vitae semper lorem. Duis sollicitudin egestas dui, vitae dictum mi aliquam vel. Maecenas porta dapibus sapien, eu feugiat odio feugiat non. Phasellus vestibulum, mi at sodales mollis, diam dui molestie arcu, non aliquet leo erat vitae est. Suspendisse tincidunt tellus ut lacus iaculis, et interdum sem interdum. Maecenas maximus tincidunt magna sit amet gravida. Pellentesque rutrum cursus nisl nec maximus. Vivamus ac convallis mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas commodo lectus sed massa feugiat imperdiet. Fusce sagittis, erat in vulputate placerat, felis diam pulvinar arcu, sed imperdiet nunc est vitae lectus.",
+    "delegate": "delegate-1@domain.com",
+    "city": "Оренбург",
+    "faculties": [
+      {
+        "name": "Архитектурно-строительный факультет",
+        "departments": [
+          {
+            "name": "  Кафедра автомобильных дорог и строительных материалов",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра архитектуры",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра начертательной геометрии, инженерной и компьютерной графики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра строительных конструкций",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра теплогазоснабжения, вентиляции и гидромеханики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра технологии строительного производства",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Институт социальных и гуманитарных наук",
+        "departments": [
+          {
+            "name": "Кафедра истории",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей и профессиональной педагогики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей психологии и психологии личности",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра философии, культурологии и социологии",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ОГАУ",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac cursus nulla, vitae rutrum nisl. Etiam ipsum ligula, convallis eu vulputate ac, porta sed neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Aenean dignissim eros in augue faucibus mattis. Morbi vitae semper lorem. Duis sollicitudin egestas dui, vitae dictum mi aliquam vel. Maecenas porta dapibus sapien, eu feugiat odio feugiat non. Phasellus vestibulum, mi at sodales mollis, diam dui molestie arcu, non aliquet leo erat vitae est. Suspendisse tincidunt tellus ut lacus iaculis, et interdum sem interdum. Maecenas maximus tincidunt magna sit amet gravida. Pellentesque rutrum cursus nisl nec maximus. Vivamus ac convallis mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas commodo lectus sed massa feugiat imperdiet. Fusce sagittis, erat in vulputate placerat, felis diam pulvinar arcu, sed imperdiet nunc est vitae lectus.",
+    "delegate": "delegate-2@domain.com",
+    "city": "Оренбург",
+    "faculties": [
+      {
+        "name": "Архитектурно-строительный факультет",
+        "departments": [
+          {
+            "name": "  Кафедра автомобильных дорог и строительных материалов",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра архитектуры",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра начертательной геометрии, инженерной и компьютерной графики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра строительных конструкций",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра теплогазоснабжения, вентиляции и гидромеханики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра технологии строительного производства",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Институт социальных и гуманитарных наук",
+        "departments": [
+          {
+            "name": "Кафедра истории",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей и профессиональной педагогики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей психологии и психологии личности",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра философии, культурологии и социологии",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "МГУ",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac cursus nulla, vitae rutrum nisl. Etiam ipsum ligula, convallis eu vulputate ac, porta sed neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Aenean dignissim eros in augue faucibus mattis. Morbi vitae semper lorem. Duis sollicitudin egestas dui, vitae dictum mi aliquam vel. Maecenas porta dapibus sapien, eu feugiat odio feugiat non. Phasellus vestibulum, mi at sodales mollis, diam dui molestie arcu, non aliquet leo erat vitae est. Suspendisse tincidunt tellus ut lacus iaculis, et interdum sem interdum. Maecenas maximus tincidunt magna sit amet gravida. Pellentesque rutrum cursus nisl nec maximus. Vivamus ac convallis mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas commodo lectus sed massa feugiat imperdiet. Fusce sagittis, erat in vulputate placerat, felis diam pulvinar arcu, sed imperdiet nunc est vitae lectus.",
+    "delegate": "delegate-3@domain.com",
+    "city": "Москва",
+    "faculties": [
+      {
+        "name": "Архитектурно-строительный факультет",
+        "departments": [
+          {
+            "name": "  Кафедра автомобильных дорог и строительных материалов",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра архитектуры",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра начертательной геометрии, инженерной и компьютерной графики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра строительных конструкций",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра теплогазоснабжения, вентиляции и гидромеханики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра технологии строительного производства",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Институт социальных и гуманитарных наук",
+        "departments": [
+          {
+            "name": "Кафедра истории",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей и профессиональной педагогики",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра общей психологии и психологии личности",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          },
+          {
+            "name": "Кафедра философии, культурологии и социологии",
+            "flows": [
+              { "name": "2024(б)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(з)", "groups": [{ "name": "1" }, { "name": "2" }] },
+              { "name": "2024(м)", "groups": [{ "name": "1" }, { "name": "2" }] }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

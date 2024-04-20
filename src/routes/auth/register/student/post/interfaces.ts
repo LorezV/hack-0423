@@ -9,4 +9,6 @@ export interface IBody {
   group_id: number;
 }
 
-export type TResponse = IToken;
+export type TResponse = {
+  data: IToken;
+};

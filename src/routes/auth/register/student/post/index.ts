@@ -40,7 +40,9 @@ export default (instance: FastifyInstance, options: unknown, done: () => void) =
       group_id: data.group_id,
     });
 
-    return await tokenService.createToken({ userID: user.id, userType: user.type }, null);
+    return {
+      data: await tokenService.createToken({ userID: user.id, userType: user.type }, null),
+    };
   }
 
   instance.post('/', { schema }, post);

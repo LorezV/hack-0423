@@ -34,7 +34,9 @@ export default (instance: FastifyInstance, options: unknown, done: () => void) =
       type: UserType.DELEGATE,
     });
 
-    return await tokenService.createToken({ userID: user.id, userType: user.type }, null);
+    return {
+      data: await tokenService.createToken({ userID: user.id, userType: user.type }, null),
+    };
   }
 
   instance.post('/', { schema }, post);

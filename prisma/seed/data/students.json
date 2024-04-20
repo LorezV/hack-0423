@@ -1,0 +1,32 @@
+[
+  {
+    "firstname": "Василий",
+    "lastname": "Петров",
+    "password": "1111",
+    "email": "student-1@domain.com"
+  },
+  {
+    "firstname": "Дмитрий",
+    "lastname": "Галкин",
+    "password": "1111",
+    "email": "student-2@domain.com"
+  },
+  {
+    "firstname": "Александр",
+    "lastname": "Рудный",
+    "password": "1111",
+    "email": "student-3@domain.com"
+  },
+  {
+    "firstname": "Митрофан",
+    "lastname": "Колесников",
+    "password": "1111",
+    "email": "student-4@domain.com"
+  },
+  {
+    "firstname": "Иван",
+    "lastname": "Иванов",
+    "password": "1111",
+    "email": "student-5@domain.com"
+  }
+]

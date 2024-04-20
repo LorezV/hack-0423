@@ -1,11 +1,11 @@
-import { Nullable } from '@interfaces';
+import { FastifyError } from 'fastify';
 import { STATUS_CODES } from 'http';
 
-export function getError(code: number, message: string, data?: Nullable<unknown>) {
+export function getError(code: number, message: string): FastifyError {
   return {
-    code,
-    error: STATUS_CODES[code] || 'Unknown Error',
+    code: String(code),
+    name: STATUS_CODES[code] || 'Unknown Error',
     message,
-    data,
+    statusCode: code,
   };
 }
