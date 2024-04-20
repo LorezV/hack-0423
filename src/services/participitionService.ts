@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { getError } from '@utils';
-import { EventService } from './event.service';
+import { EventService } from '@services';
 
 export class ParticipitionService {
   constructor(
@@ -8,9 +8,7 @@ export class ParticipitionService {
     private readonly eventService: EventService,
   ) {}
 
-  async send(eventId: number) {
-    // TODO get user_if from req headers
-    const user_id = 4;
+  async send(eventId: number, user_id: number) {
     const optionalEvent = await this.eventService.get(eventId);
 
     if (!optionalEvent) {

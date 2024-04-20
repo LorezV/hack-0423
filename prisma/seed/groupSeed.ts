@@ -2,24 +2,31 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const groups = [{ name: '1', flow_id: 1 }];
+const groups = [{ name: '1', flow: '22-ПиНЖ(б) РПиС' }];
 
 export async function GroupSeed() {
   try {
     await Promise.all(
       groups.map(async (group) => {
-        const { flow_id, ...data } = group;
-
-        await prisma.group.upsert({
-          where: { name: data.name },
-          create: {
-            ...data,
-            flow_id,
-          },
-          update: {
-            ...data,
+        const { flow, ...data } = group;
+        const optionalFlow = await prisma.flow.findFirst({
+          where: {
+            name: flow,
           },
         });
+
+        if (optionalFlow) {
+          await prisma.group.upsert({
+            where: { name: data.name },
+            create: {
+              ...data,
+              flow_id: optionalFlow.id,
+            },
+            update: {
+              ...data,
+            },
+          });
+        }
       }),
     );
 

@@ -37,26 +37,6 @@ export class EventService {
     });
   }
 
-  async sendVaccancy(id: number) {
-    // TODO get user_if from req headers
-    const user = 5;
-    const optionalEvent = await this.get(id);
-
-    if (!optionalEvent) {
-      return getError(404, `Event with id ${id} not found`, {});
-    }
-
-    return await this.prisma.participation.create({
-      data: {
-        user_id: 5,
-        event_id: optionalEvent.id,
-        reward: optionalEvent.type.reward,
-      },
-    });
-  }
-
-  async applyVaccancy(participationId: number) {}
-
   async get(id: number) {
     return await this.prisma.event.findFirst({
       where: { id },

@@ -2,24 +2,29 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const flows = [{ name: '22-ПиНЖ(б) РПиС', department_id: 1 }];
+const flows = [{ name: '22-ПиНЖ(б) РПиС', department: 'ПОВТАС' }];
 
 export async function FlowSeed() {
   try {
     await Promise.all(
       flows.map(async (flow) => {
-        const { department_id, ...data } = flow;
-
-        await prisma.flow.upsert({
-          where: { name: data.name },
-          create: {
-            ...data,
-            department_id,
-          },
-          update: {
-            ...data,
-          },
+        const { department, ...data } = flow;
+        const optionalDepartment = await prisma.department.findFirst({
+          where: { name: department },
         });
+
+        if (optionalDepartment) {
+          await prisma.flow.upsert({
+            where: { name: data.name },
+            create: {
+              ...data,
+              department_id: optionalDepartment.id,
+            },
+            update: {
+              ...data,
+            },
+          });
+        }
       }),
     );
 

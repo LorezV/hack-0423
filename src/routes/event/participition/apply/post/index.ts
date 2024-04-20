@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 import { IBody } from './interface';
 import schema from './schema';
 
-export default async (instance: FastifyInstance) => {
+export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function post(
     request: FastifyRequest<{ Params: { participationId: number }; Body: IBody }>,
   ) {
@@ -14,4 +14,5 @@ export default async (instance: FastifyInstance) => {
   }
 
   instance.post('/', { schema }, post);
+  done();
 };

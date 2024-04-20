@@ -11,15 +11,15 @@ import { UniversitySeed } from './universitySeed';
 
 const prisma = new PrismaClient();
 async function main() {
-  CitySeed();
-  DelegateSeed();
-  UniversitySeed();
-  FacultySeed();
-  DepartmentSeed();
-  FlowSeed();
-  GroupSeed();
-  EventTypeSeed();
-  StudentSeed();
+  await CitySeed();
+  await DelegateSeed();
+  await UniversitySeed();
+  await FacultySeed();
+  await DepartmentSeed();
+  await FlowSeed();
+  await GroupSeed();
+  await EventTypeSeed();
+  await StudentSeed();
 }
 
 main()
