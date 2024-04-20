@@ -1,4 +1,4 @@
-import { IEvent, IUser } from "@interfaces";
+import { IEvent, IUser } from '@interfaces';
 
 export interface IParticipation {
   id: number;

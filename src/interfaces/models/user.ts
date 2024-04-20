@@ -5,13 +5,15 @@ import { UserType } from '@prisma/client';
 export interface IUser {
   id: number;
   email: string;
-  password?: string;
+  password: string;
   type: UserType;
   firstname: string;
   lastname: string;
   created_at: Date;
   group_id: Nullable<number>;
 }
+
+export type TUserWithoutPassword<T> = Omit<T, 'password'>;
 
 export type TUserWithAvatar = IUser & { avatar: Nullable<IUserAvatar> };
 

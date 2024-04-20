@@ -1,4 +1,4 @@
-import fastify, { FastifyInstance } from 'fastify';
+import fastify from 'fastify';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 import fastifyCors from '@fastify/cors';
@@ -6,7 +6,7 @@ import { getSwaggerOptions, initDependencies, swaggerUiOptions } from './utils';
 import initRoutes from './routes';
 
 async function init() {
-  const dependencies = await initDependencies();
+  const dependencies = initDependencies();
 
   const { logger, config } = dependencies;
 
@@ -28,7 +28,7 @@ async function init() {
   await app.listen({ port: config.server.port, host: '0.0.0.0' });
 }
 
-init().catch((error: any) => {
+init().catch((error: unknown) => {
   console.error(error);
   process.exit(1);
 });

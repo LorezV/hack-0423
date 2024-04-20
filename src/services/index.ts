@@ -1,3 +1,4 @@
-export * from './event.service';
-export * from './token.service';
-export * from './user.service';
+export * from './eventService';
+export * from './tokenService';
+export * from './userService';
+export * from './universityService';

@@ -4,34 +4,34 @@ import { getError } from '@utils';
 import schema from './schema';
 import bcrypt from 'bcrypt';
 
-export default async (instance: FastifyInstance) => {
+export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function post(request: FastifyRequest<{ Body: IBody }>): Promise<TResponse> {
-    const { email, password } = request.body;
     const { userService, tokenService } = instance.dependencies.services;
+
+    const { email, password } = request.body;
 
     const user = await userService.findByEmail(email);
     if (!user) {
-      throw getError(404, 'User not exists', null);
+      throw getError(404, 'USER_NOT_FOUND');
     }
 
-    if (!(await bcrypt.compare(password, user.password as string))) {
-      throw getError(400, 'Email or password incorrect', null);
+    if (!(await bcrypt.compare(password, user.password))) {
+      throw getError(400, 'INVALID_CREDENTIALS', null);
     }
 
-    const token = await tokenService.upsertToken(
+    const token = await tokenService.createToken(
       {
-        user_id: user.id,
-        user_group: user.group?.name || null,
-        user_permissions: user.group?.permissions.map((p) => p.name) || [],
+        userID: user.id,
+        userType: user.type,
       },
       null,
     );
 
     return {
-      ...user,
-      tokens: [...user.tokens, token],
+      data: token,
     };
   }
 
   instance.post('/', { schema }, post);
+  done();
 };
