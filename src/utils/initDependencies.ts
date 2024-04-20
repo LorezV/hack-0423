@@ -3,7 +3,6 @@ import { TokenService, UserService, EventService, UniversityService } from '@ser
 import { initConfig, initLogger, initPrisma } from '@utils';
 import { ParticipitionService } from 'src/services/participitionService';
 
-
 export function initDependencies(): IDependencies {
   const config = initConfig();
   const logger = initLogger(config);

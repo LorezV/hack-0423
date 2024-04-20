@@ -3,7 +3,10 @@ import { getError } from '@utils';
 import { EventService } from './event.service';
 
 export class ParticipitionService {
-  constructor(private readonly prisma: PrismaClient, private readonly eventService: EventService) {}
+  constructor(
+    private readonly prisma: PrismaClient,
+    private readonly eventService: EventService,
+  ) {}
 
   async send(eventId: number) {
     // TODO get user_if from req headers

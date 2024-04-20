@@ -5,6 +5,7 @@ test/
 # eslint configurations
 .eslintrc.js
 .eslintskipwork.js
+prisma
 
 # jest configurations
 jest.config.js

@@ -55,9 +55,7 @@ export class EventService {
     });
   }
 
-  async applyVaccancy(participationId: number) {
-    
-  }
+  async applyVaccancy(participationId: number) {}
 
   async get(id: number) {
     return await this.prisma.event.findFirst({
