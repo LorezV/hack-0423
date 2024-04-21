@@ -6,6 +6,7 @@ export const userSchema = {
     id: { type: 'string' },
     email: { type: 'string' },
     password: { type: 'string' },
+    content: { type: 'string' },
     type: { type: 'string', enum: ['STUDENT', 'ADMIN', 'DELEGATE'] },
     firstname: { type: 'string' },
     lastname: { type: 'string' },

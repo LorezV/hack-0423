@@ -5,6 +5,7 @@ import { UserType } from '@prisma/client';
 export interface IUser {
   id: number;
   email: string;
+  content?: Nullable<string>;
   password: string;
   type: UserType;
   firstname: string;
