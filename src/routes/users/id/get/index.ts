@@ -7,7 +7,28 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
   async function get(request: FastifyRequest<{ Params: IParams }>): Promise<IResponse> {
     const { prisma } = instance.dependencies;
 
-    const user = await prisma.user.findUnique({ where: { id: request.params.id } });
+    const user = await prisma.user.findUnique({
+      where: { id: request.params.id },
+      include: {
+        group: {
+          include: {
+            flow: {
+              include: {
+                department: {
+                  include: {
+                    faculty: {
+                      include: {
+                        university: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
     if (!user) {
       throw getError(404, 'USER_NOT_FOUND');
     }
