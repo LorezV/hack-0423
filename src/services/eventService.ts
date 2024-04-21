@@ -5,7 +5,7 @@ import { IBody } from 'src/routes/event/post/interface';
 
 const eventSelect = {
   id: true,
-  title: true,
+  name: true,
   content: true,
   started_at: true,
   finished_at: true,
@@ -45,7 +45,7 @@ export class EventService {
   }
 
   async update(body: IUpdateEvent, id: number) {
-    const { title, content } = body;
+    const { name, content } = body;
     const optionalEvent = await this.get(id);
 
     if (!optionalEvent) {
@@ -55,7 +55,7 @@ export class EventService {
     return await this.prisma.event.update({
       where: { id },
       data: {
-        title,
+        name,
         content,
       },
       select: eventSelect,

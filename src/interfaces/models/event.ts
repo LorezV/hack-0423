@@ -2,7 +2,7 @@ import { IParticipation, IUniversity } from '@interfaces';
 
 export interface IEvent {
   id: number;
-  title: string;
+  name: string;
   content: string;
   started_at: Date;
   finished_at: Date;
@@ -11,7 +11,7 @@ export interface IEvent {
 }
 
 export interface IUpdateEvent {
-  title: string;
+  name: string;
   content: string;
 }
 

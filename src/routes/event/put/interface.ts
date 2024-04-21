@@ -1,4 +1,4 @@
 export interface IBody {
-  title: string;
+  name: string;
   content: string;
 }
