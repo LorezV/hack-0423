@@ -34,6 +34,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
         },
       },
     });
+
     if (!user) {
       throw getError(404, 'USER_NOT_FOUND');
     }

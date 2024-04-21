@@ -1,5 +1,9 @@
 import { groupFullSchema } from './group';
+<<<<<<< HEAD
 import { universityFullSchema } from './university';
+=======
+import { universitySchema } from './university';
+>>>>>>> 37339c2eb8319275e539fc8784a6d9f55a456f60
 
 export const userSchema = {
   type: 'object',
@@ -21,7 +25,11 @@ export const userFullSchema = {
   properties: {
     ...userSchema.properties,
     group: groupFullSchema,
+<<<<<<< HEAD
     university: universityFullSchema,
+=======
+    university: universitySchema,
+>>>>>>> 37339c2eb8319275e539fc8784a6d9f55a456f60
   },
 };
 
