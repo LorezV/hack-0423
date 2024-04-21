@@ -27,8 +27,10 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
             },
           },
         },
+        university: true,
       },
     });
+    
     if (!user) {
       throw getError(404, 'USER_NOT_FOUND');
     }

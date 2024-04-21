@@ -22,16 +22,8 @@ export class EventService {
     return await this.prisma.event.create({
       data: {
         ...data,
-        university: {
-          connect: {
-            id: university_id,
-          },
-        },
-        type: {
-          connect: {
-            id: type_id,
-          },
-        },
+        university_id,
+        type_id: type_id,
       },
       select: eventSelect,
     });
