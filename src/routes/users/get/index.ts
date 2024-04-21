@@ -17,6 +17,26 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
       }[];
     } = {};
 
+    const users1 = await prisma.user.findMany({
+      where: {
+        group: {
+          id: request.query.group_id,
+          flow: {
+            id: request.query.flow_id,
+            department: {
+              id: request.query.department_id,
+              faculty: {
+                id: request.query.faculty_id,
+                university: {
+                  id: request.query.university_id,
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
     if (request.query.search) {
       where.OR = [];
       request.query.search.split(' ').forEach((word) => {
@@ -35,7 +55,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
 
     return {
       data: {
-        users,
+        users: users1,
         total_records: totalRecords,
         total_pages: Math.floor(totalRecords / limit) + 1,
       },
