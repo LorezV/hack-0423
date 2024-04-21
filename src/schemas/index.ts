@@ -4,4 +4,5 @@ export * from './faculty';
 export * from './flow';
 export * from './group';
 export * from './university';
+export * from './city';
 export * from './user';

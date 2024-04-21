@@ -7,6 +7,7 @@ import departments from './departments';
 import flows from './flows';
 import groups from './groups';
 import users from './users';
+import cities from './cities';
 
 export default async (instance: FastifyInstance) => {
   await instance.register(auth, { prefix: '/auth' });
@@ -16,4 +17,5 @@ export default async (instance: FastifyInstance) => {
   await instance.register(flows, { prefix: '/flows' });
   await instance.register(groups, { prefix: '/groups' });
   await instance.register(users, { prefix: '/users' });
+  await instance.register(cities, { prefix: '/cities' });
 };

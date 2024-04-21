@@ -1,3 +1,5 @@
+import { citySchema } from './city';
+
 export const universitySchema = {
   type: 'object',
   properties: {
@@ -6,6 +8,14 @@ export const universitySchema = {
     content: { type: 'string' },
     delegate_id: { type: 'number' },
     city_id: { type: 'number' },
+  },
+};
+
+export const universityFullSchema = {
+  type: 'object',
+  properties: {
+    ...universitySchema.properties,
+    city: citySchema,
   },
 };
 
