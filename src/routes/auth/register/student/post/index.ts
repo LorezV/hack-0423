@@ -3,7 +3,6 @@ import schema from './schema';
 import { IBody, TResponse } from './interfaces';
 import { string } from 'yup';
 import { getError } from '@utils';
-import bcrypt from 'bcrypt';
 import { UserType } from '@prisma/client';
 
 export default (instance: FastifyInstance, options: unknown, done: () => void) => {
@@ -38,7 +37,7 @@ export default (instance: FastifyInstance, options: unknown, done: () => void) =
 
     const user = await userService.createUser({
       email: data.email,
-      password: await bcrypt.hash(data.password, 4),
+      password: data.password,
       firstname: data.firstname,
       lastname: data.lastname,
       type: UserType.STUDENT,

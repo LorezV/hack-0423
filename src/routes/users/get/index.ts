@@ -17,8 +17,17 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
       }[];
     } = {};
 
-    const users1 = await prisma.user.findMany({
+    if (request.query.search) {
+      where.OR = [];
+      request.query.search.split(' ').forEach((word) => {
+        where.OR?.push({ firstname: { contains: word } });
+        where.OR?.push({ lastname: { contains: word } });
+      });
+    }
+
+    const users = await prisma.user.findMany({
       where: {
+        ...where,
         group: {
           id: request.query.group_id,
           flow: {
@@ -29,33 +38,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
                 id: request.query.faculty_id,
                 university: {
                   id: request.query.university_id,
-                },
-              },
-            },
-          },
-        },
-      },
-    });
-
-    if (request.query.search) {
-      where.OR = [];
-      request.query.search.split(' ').forEach((word) => {
-        where.OR?.push({ firstname: { contains: word } });
-        where.OR?.push({ lastname: { contains: word } });
-      });
-    }
-
-    const users = await prisma.user.findMany({
-      where,
-      include: {
-        group: {
-          include: {
-            flow: {
-              include: {
-                department: {
-                  include: {
-                    faculty: true,
-                  },
+                  city_id: request.query.city_id,
                 },
               },
             },
@@ -70,7 +53,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
 
     return {
       data: {
-        users: users1,
+        users: users,
         total_records: totalRecords,
         total_pages: Math.floor(totalRecords / limit) + 1,
       },

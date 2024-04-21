@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 import { IBody, TResponse } from './interfaces';
 import { getError } from '@utils';
 import schema from './schema';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function post(request: FastifyRequest<{ Body: IBody }>): Promise<TResponse> {
@@ -15,8 +15,8 @@ export default (instance: FastifyInstance, options: unknown, done: () => void) =
       throw getError(404, 'USER_NOT_FOUND');
     }
 
-    if (!(await bcrypt.compare(password, user.password))) {
-      throw getError(400, 'INVALID_CREDENTIALS', null);
+    if (password !== user.password) {
+      throw getError(400, 'INVALID_CREDENTIALS');
     }
 
     const token = await tokenService.createToken(
