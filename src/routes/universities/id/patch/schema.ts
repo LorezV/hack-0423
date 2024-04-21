@@ -3,13 +3,18 @@ import { FastifySchema } from 'fastify';
 
 const schema: FastifySchema = {
   tags: ['Университеты'],
+  params: {
+    type: 'object',
+    properties: {
+      id: { type: 'number' },
+    },
+  },
   body: {
     type: 'object',
-    required: ['name', 'content', 'city_id'],
     properties: {
       name: { type: 'string' },
       content: { type: 'string' },
-      city_id: { type: 'number' },
+      city_id: { type: 'string' },
     },
   },
   response: {

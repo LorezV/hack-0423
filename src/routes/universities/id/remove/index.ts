@@ -1,34 +1,34 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
+import { IParams, IResponse } from './interfaces';
 import schema from './schema';
 import { setUserGuard, setUserHook } from '@hooks';
 import { UserType } from '@prisma/client';
-import { IBody, IResponse } from './interfaces';
 import { IUser } from '@interfaces';
+import { getError } from '@utils';
 
 export default function (instance: FastifyInstance, options: unknown, done: () => void) {
   setUserHook(instance);
   setUserGuard(instance, [UserType.DELEGATE]);
 
-  async function post(request: FastifyRequest<{ Body: IBody }>): Promise<IResponse> {
+  async function remove(request: FastifyRequest<{ Params: IParams }>): Promise<IResponse> {
     const { prisma } = instance.dependencies;
+    const { id } = request.params;
     const delegate = request.user as IUser;
 
-    const { name, content, city_id } = request.body;
-
-    const university = await prisma.university.create({
-      data: {
-        name,
-        content,
-        city_id,
-        delegate_id: delegate.id,
-      },
+    let university = await prisma.university.findUnique({
+      where: { id },
     });
+    if (university?.delegate_id !== delegate.id) {
+      throw getError(401, 'Forbidden');
+    }
+
+    university = await prisma.university.delete({ where: { id, delegate_id: delegate.id } });
 
     return {
       data: university,
     };
   }
 
-  instance.post('/', { schema }, post);
+  instance.delete('/', { schema }, remove);
   done();
 }
