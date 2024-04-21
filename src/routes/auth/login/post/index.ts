@@ -2,7 +2,6 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 import { IBody, TResponse } from './interfaces';
 import { getError } from '@utils';
 import schema from './schema';
-import * as bcrypt from 'bcrypt';
 
 export default (instance: FastifyInstance, options: unknown, done: () => void) => {
   async function post(request: FastifyRequest<{ Body: IBody }>): Promise<TResponse> {
