@@ -22,3 +22,11 @@ export const userFullSchema = {
     group: groupFullSchema,
   },
 };
+
+export const userAvatarSchema = {
+  type: 'object',
+  properties: {
+    user_id: { type: 'number' },
+    path: { type: 'string' },
+  },
+};
