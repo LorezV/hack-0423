@@ -2,7 +2,7 @@ import { userSchema } from '@schemas';
 import { FastifySchema } from 'fastify';
 
 const schema: FastifySchema = {
-  tags: ['Пользователи'],
+  tags: ['Пользоватеди'],
   params: {
     id: { type: 'number' },
   },

@@ -9,7 +9,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
   setUserHook(instance);
   setUserGuard(instance);
 
-  async function get(
+  async function patch(
     request: FastifyRequest<{ Params: IParams; Body: IBody }>,
   ): Promise<IResponse> {
     const { prisma } = instance.dependencies;
@@ -36,6 +36,6 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
     };
   }
 
-  instance.patch('/', { schema }, get);
+  instance.patch('/', { schema }, patch);
   done();
 }
