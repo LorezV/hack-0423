@@ -35,7 +35,7 @@ export class UserService {
   }
 
   async findByID(id: number): Promise<Nullable<IUser>> {
-    return this.prisma.user.findUnique({
+    return this.prisma.user.findFirst({
       where: { id },
     });
   }

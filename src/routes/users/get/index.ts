@@ -47,6 +47,21 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
 
     const users = await prisma.user.findMany({
       where,
+      include: {
+        group: {
+          include: {
+            flow: {
+              include: {
+                department: {
+                  include: {
+                    faculty: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
       skip: offset,
       take: limit,
     });

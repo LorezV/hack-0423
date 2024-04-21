@@ -2,7 +2,7 @@ import { userSchema } from '@schemas';
 import { FastifySchema } from 'fastify';
 
 const schema: FastifySchema = {
-  tags: ['Пользоватеди'],
+  tags: ['Пользователи'],
   querystring: {
     type: 'object',
     properties: {
