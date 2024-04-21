@@ -7,7 +7,7 @@ const schema: FastifySchema = {
     type: 'object',
     properties: {
       limit: { type: 'number' },
-      skip: { type: 'number' },
+      page: { type: 'number' },
       search: { type: 'string' },
     },
   },
@@ -19,6 +19,12 @@ const schema: FastifySchema = {
           cities: {
             type: 'array',
             items: citySchema,
+          },
+          total_records: {
+            type: 'number',
+          },
+          total_pages: {
+            type: 'number',
           },
         },
       },
