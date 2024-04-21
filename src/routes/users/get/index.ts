@@ -45,6 +45,25 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
           },
         },
       },
+      include: {
+        group: {
+          include: {
+            flow: {
+              include: {
+                department: {
+                  include: {
+                    faculty: {
+                      include: {
+                        university: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
       skip: offset,
       take: limit,
     });

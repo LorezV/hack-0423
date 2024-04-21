@@ -4,6 +4,7 @@ import fastifySwaggerUi from '@fastify/swagger-ui';
 import fastifyCors from '@fastify/cors';
 import { getSwaggerOptions, initDependencies, swaggerUiOptions } from './utils';
 import initRoutes from './routes';
+import fastifyStatic from '@fastify/static';
 
 async function init() {
   const dependencies = initDependencies();
@@ -20,6 +21,10 @@ async function init() {
   await app.register(fastifySwagger, getSwaggerOptions(config));
   await app.register(fastifySwaggerUi, swaggerUiOptions);
   await app.register(fastifyCors, { origin: '*' });
+  await app.register(fastifyStatic, {
+    root: config.images.path,
+    prefix: '/images/',
+  });
   await app.register(initRoutes, { prefix: '/api' });
 
   app.addHook('onRequest', (request, reply, done) => {

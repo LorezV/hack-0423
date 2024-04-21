@@ -10,4 +10,8 @@ export interface IConfig {
     refreshSecret: string;
     refreshExpires: number;
   };
+  images: {
+    path: string;
+    maxSize: number;
+  };
 }

@@ -4,3 +4,4 @@ export * from './initPrisma';
 export * from './initDependencies';
 export * from './getError';
 export * from './getSwaggerOptions';
+export * from './multer';

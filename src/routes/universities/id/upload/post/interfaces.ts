@@ -1,3 +1,13 @@
-export interface IBody {}
+import { IUniversityAvatar, IUniversityImage } from '@interfaces';
 
-export interface IResponse {}
+export interface IParams {
+  id: number;
+}
+
+export interface IQuerystring {
+  type: 'avatar' | 'gallery';
+}
+
+export interface IResponse {
+  data: IUniversityAvatar | IUniversityImage;
+}

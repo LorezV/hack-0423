@@ -8,3 +8,20 @@ export const universitySchema = {
     city_id: { type: 'number' },
   },
 };
+
+export const universityAvatarSchema = {
+  type: 'object',
+  properties: {
+    university_id: { type: 'number' },
+    path: { type: 'string' },
+  },
+};
+
+export const universityImageSchema = {
+  type: 'object',
+  properties: {
+    id: { type: 'number' },
+    university_id: { type: 'number' },
+    path: { type: 'string' },
+  },
+};

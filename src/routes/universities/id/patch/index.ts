@@ -24,7 +24,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
     }
 
     if (university.delegate_id !== delegate?.id) {
-      throw getError(401, 'FORBIDDEN');
+      throw getError(403, 'FORBIDDEN');
     }
 
     university = await prisma.university.update({

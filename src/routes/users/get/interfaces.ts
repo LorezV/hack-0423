@@ -1,4 +1,4 @@
-import { IUser } from '@interfaces';
+import { IDepartment, IFaculty, IFlow, IGroup, IUniversity, IUser } from '@interfaces';
 import { UserType } from '@prisma/client';
 
 export interface IQuerystring {
@@ -16,7 +16,14 @@ export interface IQuerystring {
 
 export interface IResponse {
   data: {
-    users: IUser[];
+    users: IUser &
+      {
+        group: IGroup & {
+          flow: IFlow & {
+            department: IDepartment & { faculty: IFaculty & { university: IUniversity } };
+          };
+        };
+      }[];
     total_records: number;
     total_pages: number;
   };

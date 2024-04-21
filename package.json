@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.6",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
+    "@fastify/static": "^7.0.3",
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
     "@prisma/client": "^5.12.1",
@@ -38,9 +40,12 @@
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
+    "fastify-multer": "^2.0.3",
     "jsonwebtoken": "^9.0.2",
     "npm": "^10.5.2",
     "pino": "^8.20.0",
+    "sharp": "^0.33.3",
+    "uuid": "^9.0.1",
     "yup": "^1.4.0"
   },
   "lint-staged": {

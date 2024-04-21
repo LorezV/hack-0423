@@ -5,6 +5,7 @@ const schema: FastifySchema = {
   tags: ['Университеты'],
   params: {
     type: 'object',
+    required: ['id'],
     properties: {
       id: { type: 'number' },
     },
@@ -17,6 +18,11 @@ const schema: FastifySchema = {
       },
     },
   },
+  security: [
+    {
+      auth: [],
+    },
+  ],
 };
 
 export default schema;

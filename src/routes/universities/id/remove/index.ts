@@ -19,7 +19,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
       where: { id },
     });
     if (university?.delegate_id !== delegate.id) {
-      throw getError(401, 'Forbidden');
+      throw getError(403, 'Forbidden');
     }
 
     university = await prisma.university.delete({ where: { id, delegate_id: delegate.id } });

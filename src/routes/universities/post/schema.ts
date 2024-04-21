@@ -20,6 +20,11 @@ const schema: FastifySchema = {
       },
     },
   },
+  security: [
+    {
+      auth: [],
+    },
+  ],
 };
 
 export default schema;

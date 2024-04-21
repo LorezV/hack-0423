@@ -9,6 +9,7 @@
     "module": "commonjs",
     "lib": ["ES2021"],
     "outDir": "./build",
+    "types": ["fastify-multer/typings/fastify"],
     "paths": {
       "@hooks": ["src/hooks/index"],
       "@services": ["src/services/index"],

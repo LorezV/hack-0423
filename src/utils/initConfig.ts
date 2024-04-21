@@ -15,6 +15,10 @@ export function initConfig(): IConfig {
       refreshSecret: string().required(),
       refreshExpires: number().required(),
     }),
+    images: object({
+      path: string().required(),
+      maxSize: number().required(),
+    }),
   }).validateSync({
     project: process.env.npm_package_name || 'hack-0423',
     server: {
@@ -26,6 +30,10 @@ export function initConfig(): IConfig {
       accessExpires: process.env.JWT_ACCESS_EXPIRES,
       refreshSecret: process.env.JWT_REFRESH_SECRET,
       refreshExpires: process.env.JWT_ACCESS_EXPIRES,
+    },
+    images: {
+      path: process.env.IMAGES_PATH,
+      maxSize: process.env.IMAGES_MAX_SIZE,
     },
   });
 }
