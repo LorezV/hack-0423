@@ -1,4 +1,4 @@
-import { userSchema } from '@schemas';
+import { userFullSchema } from '@schemas';
 import { FastifySchema } from 'fastify';
 
 const schema: FastifySchema = {
@@ -10,7 +10,7 @@ const schema: FastifySchema = {
     200: {
       type: 'object',
       properties: {
-        data: userSchema,
+        data: userFullSchema,
       },
     },
   },
