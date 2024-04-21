@@ -1,4 +1,5 @@
 import { groupFullSchema } from './group';
+import { universityFullSchema } from './university';
 
 export const userSchema = {
   type: 'object',
@@ -20,6 +21,7 @@ export const userFullSchema = {
   properties: {
     ...userSchema.properties,
     group: groupFullSchema,
+    university: universityFullSchema,
   },
 };
 

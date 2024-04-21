@@ -63,6 +63,7 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
             },
           },
         },
+        university: true,
       },
       skip: offset,
       take: limit,

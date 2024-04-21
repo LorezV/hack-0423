@@ -6,6 +6,7 @@ export interface IParams {
 
 export interface IResponse {
   data: IUser & {
+    university: Nullable<IUniversity>;
     group: Nullable<
       IGroup & {
         flow: IFlow & {

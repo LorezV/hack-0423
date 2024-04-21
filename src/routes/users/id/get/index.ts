@@ -27,6 +27,11 @@ export default function (instance: FastifyInstance, options: unknown, done: () =
             },
           },
         },
+        university: {
+          include: {
+            city: true,
+          },
+        },
       },
     });
     if (!user) {
