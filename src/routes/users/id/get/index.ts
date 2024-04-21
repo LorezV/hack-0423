@@ -1,20 +1,20 @@
-import { IUser } from '@interfaces';
 import { getError } from '@utils';
 import { FastifyInstance, FastifyRequest } from 'fastify';
+import { IParams, IResponse } from './interfaces';
 import schema from './schema';
 
 export default function (instance: FastifyInstance, options: unknown, done: () => void) {
-  async function get(request: FastifyRequest<{ Params: { id: number } }>): Promise<IUser> {
-    const { userService } = instance.dependencies.services;
-    const id = request.params.id;
+  async function get(request: FastifyRequest<{ Params: IParams }>): Promise<IResponse> {
+    const { prisma } = instance.dependencies;
 
-    const optionalUser = await userService.findByID(id);
-
-    if (!optionalUser) {
-      throw getError(404, 'User is undefined');
+    const user = await prisma.user.findUnique({ where: { id: request.params.id } });
+    if (!user) {
+      throw getError(404, 'USER_NOT_FOUND');
     }
 
-    return optionalUser;
+    return {
+      data: user,
+    };
   }
 
   instance.get('/', { schema }, get);
